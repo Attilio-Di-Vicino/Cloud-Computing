@@ -10,7 +10,7 @@ with open( '\path-to-your-data\experiments.csv' , ' rb') as csvfile:
 		quotechar='|'
 	)
 	for item in csvf:
-		body=open('path-to-your-data\datafiles\\'+item[3],'rb ')
+		body=open('https://it-attiliodivicino-datacont.s3.us-west-2.amazonaws.com/\\'+item[3],'rb ')
 		s3.Object('datacont',item[3]).put(Body=body)
 		md=s3.Object('datacont',item[3]).Acl().put(ACL='public-read')
 		url= urlbase +item [3]
