@@ -4,7 +4,7 @@ dyndb=boto3.resource('dynamodb',region_name='us-west-2')
 
 table = dyndb.Table("DataTable")
 urlbase = "https://s3-us-west-2.amazonaws.com/it-attiliodivicino-datacont/"
-with open( 'https://it-attiliodivicino-datacont.s3.us-west-2.amazonaws.com/experiments.csv' , 'rb') as csvfile:
+with open( 's3://it-attiliodivicino-datacont/experiments.csv' , 'rb') as csvfile:
 	csvf = csv.reader(csvfile,
 		delimiter =',',
 		quotechar='|'
