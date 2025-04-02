@@ -1,5 +1,5 @@
 # Upload data to the table:
-import csv
+import boto3, csv
 dyndb=boto3.resource('dynamodb',region_name='us-west-2')
 
 table = dyndb.Table("DataTable")
