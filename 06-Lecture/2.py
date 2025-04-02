@@ -1,15 +1,3 @@
-import boto3
-s3 = boto3.resource('s3')
-
-# Bucket creation:
-s3 = boto3.resource('s3')
-s3.create_bucket(
-	Bucket = 'datacont',
-	CreateBucketConfiguration={
-		'LocationConstraint': 'us-west-2'
-	}
-)
-
 # Create a DynamoDB table:
 dyndb=boto3.resource('dynamodb',region_name='us-west-2')
 
