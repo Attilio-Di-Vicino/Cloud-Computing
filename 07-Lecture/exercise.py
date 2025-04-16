@@ -7,6 +7,15 @@ AWS_REGION = "us-east-1"
 S3_BUCKET_NAME = "cloudcomputing-nctf4"
 LOCAL_DIR = "./tmp" 
 
+session = boto3.Session(
+    # aws_access_key_id="YOUR_ACCESS_KEY",  
+    # aws_secret_access_key="YOUR_SECRET_KEY", 
+    region_name="us-east-1"
+)
+
+# Connetti al servizio S3
+s3 = session.client("s3")
+
 def extract_and_save_variables(nc_path, base_filename):
     dataset = Dataset(nc_path, 'r')
     output_files = []
@@ -47,7 +56,7 @@ def upload_to_s3(s3_client, bucket, base_filename, files):
 
 def main(nc_local_path):
     base_filename = os.path.basename(nc_local_path)
-    s3 = boto3.client('s3', region_name=AWS_REGION)
+    # s3 = boto3.client('s3', region_name=AWS_REGION)
 
     # Crea il bucket se non esiste
     try:
